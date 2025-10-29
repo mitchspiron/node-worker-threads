@@ -1,4 +1,5 @@
 import express from "express";
+import { Worker } from "worker_threads";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -10,6 +11,9 @@ app.get("/non-blocking", (req, res) => {
 
 // Blocking route using worker threads
 app.get("/blocking", (req, res) => {
+  // Create a new worker thread
+  const worker = new Worker("./worker.js");
+
   let result = 0;
   // Simulate heavy computation
   for (let i = 0; i < 1000000000; i++) {
