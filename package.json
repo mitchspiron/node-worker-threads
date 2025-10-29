@@ -1,0 +1,28 @@
+{
+  "name": "worker-threads",
+  "version": "1.0.0",
+  "author": "Mitch Spiron",
+  "description": "Implement Multi-Threading in Node.js With Worker Threads",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitchspiron/node-worker-threads.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mitchspiron/node-worker-threads/issues"
+  },
+  "homepage": "https://github.com/mitchspiron/node-worker-threads#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
