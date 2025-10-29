@@ -14,13 +14,15 @@ app.get("/blocking", (req, res) => {
   // Create a new worker thread
   const worker = new Worker("./worker.js");
 
-  let result = 0;
-  // Simulate heavy computation
-  for (let i = 0; i < 1000000000; i++) {
-    result++;
-  }
+  // Listen for messages from the worker
+  worker.on("message", (data) => {
+    res.status(200).send(`Result is ${data}`);
+  });
 
-  res.status(200).send(`Result is ${result}`);
+  // Handle worker errors
+  worker.on("error", (err) => {
+    res.status(400).send(`An Error occured: ${err}`);
+  });
 });
 
 app.listen(port, () => {
